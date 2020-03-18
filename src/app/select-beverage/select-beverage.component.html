@@ -1,0 +1,15 @@
+
+<ul>
+  <li class="list" *ngFor="let bevOutput of data"
+  (click)="clickSaveBeverage(bevOutput)"
+  [class.selectedBevCss]="bevOutput === selectedBeverage">
+  {{bevOutput.name}}
+  </li>
+
+
+  <div>
+    <input type="text" [(ngModel)]="beverageAddInput">
+    <button (click)="addBeverage($event)">Add new beverage</button>
+  </div>
+
+</ul>

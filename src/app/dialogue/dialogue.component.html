@@ -1,0 +1,19 @@
+<div *ngIf="paramForget">
+<p>Got it. Who are you again?</p>
+<app-username (messageToEmit)="getNameMessage($event)"></app-username>
+</div>
+
+<div *ngIf="!paramForget">
+<p *ngIf="newNameBoolean && !addLocalStorName"> Howdy, {{ receivedChildMessage }}. Haven't seen your face around here before. What's your name?</p>
+<p *ngIf="!newNameBoolean && !addBevBoolean && !addLocalStorName">Alright Mr. {{ receivedChildMessage }}, what can I do you for?</p>
+<p *ngIf="addLocalStorName && !addBevBoolean">Hello again, Mr. {{receivedChildMessage}}! what can I do you for?  <app-the-usual (messageToEmit)="getLocalStoreBevMessage($event)"></app-the-usual></p>
+
+<p *ngIf="addBevBoolean">One {{receivedChildBevMessage.name}} coming right up! </p>
+
+<!-- <p *ngIf="!reloadBoolean">Got it. Who are you again?</p> -->
+
+<app-username *ngIf="newNameBoolean && !addLocalStorName" (messageToEmit)="getNameMessage($event)"></app-username>
+<app-select-beverage *ngIf="!newNameBoolean || addLocalStorName" (messageToEmit)="getBevMessage($event)"></app-select-beverage>
+</div>
+
+

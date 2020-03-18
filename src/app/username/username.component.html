@@ -1,0 +1,7 @@
+<div *ngIf="addNameBoolean">
+
+<input type="text" placeholder="First Name" [(ngModel)]="firstName">
+<input type="text" placeholder="Second Name" [(ngModel)]="secondName">
+<button (click)="onClickName($event)">Add name</button>
+
+</div>
